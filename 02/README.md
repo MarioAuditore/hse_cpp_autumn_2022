@@ -1,1 +1,1 @@
-Simple parser for strnig and uint64_t tokens with callback functions
+Simple parser for string and uint64_t tokens with callback functions
