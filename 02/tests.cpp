@@ -75,23 +75,3 @@ int main(int argc, char** argv)
     return RUN_ALL_TESTS();
 }
 
-
-/*
-int main()
-
-{
-
-    TokenParser parser;
-
-    std::string line = "bruh 1234 fatjoe4\ncringe\tbillClinton";
-
-    parser.Parse(line);
-
-    for (auto it = begin(parser.string_tokens); it != end(parser.string_tokens); ++it)
-    {
-        std::cout << *it << std::endl;
-    }
-    
-
-}
-*/
