@@ -55,6 +55,7 @@ TEST(TestUtils, test_complex_token)
     ASSERT_EQ(parser.digit_tokens[0], digit_buf);
 }
 
+
 TEST(TestUtils, test_extreme_token)
 {
     TokenParser parser;
@@ -67,6 +68,21 @@ TEST(TestUtils, test_extreme_token)
     ASSERT_EQ(parser.string_tokens[1], "dollars");
 }
 
+TEST(TestUtils, test_callback_start)
+{
+    TokenParser parser;
+
+    std::string line = "238";
+    auto add_word = [](std::string x){return x + " callback";};
+
+    parser.SetStartCallback(add_word);
+    parser.Parse(line);
+
+    uint64_t digit_buf = 238;
+    ASSERT_EQ(parser.digit_tokens[0], digit_buf);
+    ASSERT_EQ(parser.string_tokens[0], "callback");
+}
+
 
 
 int main(int argc, char** argv)
@@ -74,4 +90,3 @@ int main(int argc, char** argv)
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-
