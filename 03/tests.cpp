@@ -58,15 +58,12 @@ TEST(TestUtils, test_sum)
     
     matrix_1[0][0] = 2;
     matrix_1[1][0] = 3;
-    //matrix_1[2][1] = 7;
 
     matrix_2[0][0] = 1;
-    matrix_2[1][0] = 5;
-    //matrix_2[2][1] = 10;
+    matrix_2[1][0] = 5; 
 
     matrix_3[0][0] = 3;
     matrix_3[1][0] = 8;
-    //matrix_3[2][1] = 17;
 
     Matrix matrix_sum = matrix_1 + matrix_2;
 
