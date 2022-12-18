@@ -23,14 +23,14 @@ TEST(TestUtils, test_comparison)
     matrix_2[1][0] = 5;
     matrix_2[2][2] = 10;
 
-    ASSERT_EQ(matrix_1, matrix_1);
-    ASSERT_EQ(matrix_1, matrix_1);
-    ASSERT_NE(matrix_1, matrix_2);
+    ASSERT_EQ(matrix_1 == matrix_1, true);
+    ASSERT_EQ(matrix_2 == matrix_2, true);
+    ASSERT_EQ(matrix_1 != matrix_2, true);
 }
 
 
 // Тест успешно пройдёт.
-TEST(TestUtils, test_sum)
+TEST(TestUtils, test_multiply)
 {
     Matrix matrix_1 = Matrix(3, 3);
     Matrix matrix_2 = Matrix(3, 3);
@@ -45,31 +45,32 @@ TEST(TestUtils, test_sum)
 
     matrix_1 *= 2;
 
-    ASSERT_EQ(matrix_1, matrix_2);
+    ASSERT_EQ(matrix_1 == matrix_2, true);
 }
 
 
 // Тест успешно пройдёт.
-TEST(TestUtils, test_multiply)
+TEST(TestUtils, test_sum)
 {
     Matrix matrix_1 = Matrix(3, 3);
     Matrix matrix_2 = Matrix(3, 3);
+    Matrix matrix_3 = Matrix(3, 3);
     
     matrix_1[0][0] = 2;
     matrix_1[1][0] = 3;
-    matrix_1[2][1] = 7;
+    //matrix_1[2][1] = 7;
 
     matrix_2[0][0] = 1;
     matrix_2[1][0] = 5;
-    matrix_2[2][1] = 10;
+    //matrix_2[2][1] = 10;
 
     matrix_3[0][0] = 3;
     matrix_3[1][0] = 8;
-    matrix_3[2][1] = 17;
+    //matrix_3[2][1] = 17;
 
     Matrix matrix_sum = matrix_1 + matrix_2;
 
-    ASSERT_EQ(matrix_sum, matrix_3);
+    ASSERT_EQ(matrix_sum == matrix_3, true);
 }
 
 

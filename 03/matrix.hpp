@@ -21,6 +21,7 @@ public:
         const ProxyRow& operator*=(const int32_t n);
         const ProxyRow operator+(const ProxyRow &row);
         const bool operator==(const ProxyRow &row);
+        const bool operator!=(const ProxyRow &row);
         const void operator=(const ProxyRow row);
 
         friend std::ostream& operator<<(std::ostream& os, ProxyRow& row);
@@ -36,6 +37,7 @@ public:
     Matrix& operator*=(int32_t n);
     const Matrix operator+(const Matrix &row);
     const bool operator==(const Matrix &row);
+    const bool operator!=(const Matrix &row);
     const void operator=(const Matrix row);
 
     friend std::ostream& operator<<(std::ostream& os, Matrix& mtx);

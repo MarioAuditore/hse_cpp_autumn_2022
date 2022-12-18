@@ -61,6 +61,11 @@ const bool Matrix::ProxyRow::operator==(const Matrix::ProxyRow &row)
     return true;
 }
 
+const bool Matrix::ProxyRow::operator!=(const Matrix::ProxyRow &row)
+{
+    return !(this->operator==(row));
+}
+
 std::ostream& operator<<(std::ostream& os, Matrix::ProxyRow& row)
 {
     os << "[";
@@ -121,9 +126,8 @@ const Matrix Matrix::operator+(const Matrix &mtx)
 
     for (int i = 0; i < n_rows; ++i)
     {
-        new_mtx.rows_[i] = rows_[i] + mtx.rows_[i];
+        new_mtx.rows_[i] = rows_[i].operator+(mtx.rows_[i]);
     }
-    //std::cout << "Sum operator\n" << "mtx1\n" << *this << "mtx2\n" << mtx << "result\n" << new_mtx << std::endl;
     return new_mtx;
 }
 
@@ -144,6 +148,11 @@ const bool Matrix::operator==(const Matrix &mtx)
         
     }
     return true;
+}
+
+const bool Matrix::operator!=(const Matrix &mtx)
+{
+    return !(this->operator==(mtx));
 }
 
 
