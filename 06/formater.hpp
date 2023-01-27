@@ -109,7 +109,7 @@ std::string format(std::string seq, ArgsT... args)
         {
             if (balance == 0)
             {
-                throw Error("Invalid nested curly braces: closing brace before opening", __FILE__, __LINE__);
+                throw Error("Invalid curly braces: closing brace before opening", __FILE__, __LINE__);
             }
             else
             {
