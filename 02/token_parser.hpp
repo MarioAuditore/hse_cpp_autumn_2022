@@ -4,6 +4,10 @@
 #include <vector>
 #include <sstream>
 
+
+using digit_func = uint64_t (*)(uint64_t i);
+using letter_func = std::string (*)(std::string str);
+
 class TokenParser
 
 {
@@ -12,19 +16,17 @@ class TokenParser
     std::string(*start_callback)(std::string);
     std::string(*end_callback)(std::string);
     uint64_t(*digit_token_callback)(uint64_t);
+    std::string(*letter_token_callback)(std::string);
 
     public:
-
-    std::vector<std::string> string_tokens;
-    std::vector<uint64_t> digit_tokens;
 
     TokenParser()
     {
         start_callback = nullptr;
         end_callback = nullptr;
         digit_token_callback = nullptr;
-    };
-
+        letter_token_callback = nullptr;
+    }
 
 
     // Устанавливаем callback-функцию перед стартом парсинга.
@@ -47,9 +49,10 @@ class TokenParser
 
     // Тут другие методы для установки callback-функций.
 
-    //...
+    void SetLetterTokenCallback(std::string (*callback_func)(std::string));
 
-    void Parse(const std::string line);
+
+    std::string Parse(const std::string line);
 
 };
 
